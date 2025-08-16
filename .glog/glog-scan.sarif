@@ -1,0 +1,1099 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Glog.AI",
+          "organization": "Glog.AI",
+          "fullName": "Glog, Making software more secure",
+          "version": "1.0.0",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://www.glog.ai",
+          "rules": [
+            {
+              "id": "glog-fb89f289-4603-40c5-bb47-7c53f1df4332",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-92896103-c4de-48a0-b9e2-038d6d844a31",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-bdabecec-f457-48d3-98f5-e0740f03f315",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-acc4ecf1-2629-4a9f-9d92-24e4550bb7a2",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-c55e0853-f348-43a5-ba9b-62822ab655dd",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-4cb44742-6199-43b2-8885-ba7605b657b9",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-c600c5d4-aa71-4518-95e5-b8959f5f8e84",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-6cd5edfb-2352-4632-a654-943d3d472edf",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-be4e14b1-4e4e-45b6-9791-23fec2a1cc4c",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-bfab7021-ff27-479b-8332-4d44cee96e56",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-f0a17ef8-d5e0-41de-b016-005244324352",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-0930cdad-8cef-41be-8dcf-bedfe71df854",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-f0a65dcf-a41c-46c0-a7c8-8483ad5c6382",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-5a3da9d5-418a-4191-8452-6c5f38c9ee6e",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-62713dbc-294d-4f7b-81a3-1c66b1bc096c",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-ac1e7cc6-1fda-43c6-b732-799183f194fb",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-fbef648d-c36c-4b9f-aa88-3791ba490f4d",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-be55a3bd-d47f-43b4-a8c6-4c7794dfeed8",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-033c70a6-b26e-48be-a63f-71070c092274",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-44ba0500-bfd4-4aa5-a195-fa74777d528c",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            }
+          ],
+          "language": "en-US",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "isComprehensive": false
+        }
+      },
+      "language": "en-US",
+      "results": [
+        {
+          "ruleId": "glog-fb89f289-4603-40c5-bb47-7c53f1df4332",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11234,
+                  "startColumn": 29,
+                  "endLine": 11234,
+                  "endColumn": 37,
+                  "charOffset": 388465,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-bdabecec-f457-48d3-98f5-e0740f03f315",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11217,
+                  "startColumn": 5,
+                  "endLine": 11217,
+                  "endColumn": 13,
+                  "charOffset": 387779,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-acc4ecf1-2629-4a9f-9d92-24e4550bb7a2",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11219,
+                  "startColumn": 22,
+                  "endLine": 11219,
+                  "endColumn": 30,
+                  "charOffset": 387852,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-c55e0853-f348-43a5-ba9b-62822ab655dd",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11202,
+                  "startColumn": 14,
+                  "endLine": 11202,
+                  "endColumn": 22,
+                  "charOffset": 387270,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-4cb44742-6199-43b2-8885-ba7605b657b9",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11193,
+                  "startColumn": 14,
+                  "endLine": 11193,
+                  "endColumn": 22,
+                  "charOffset": 386994,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-c600c5d4-aa71-4518-95e5-b8959f5f8e84",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11197,
+                  "startColumn": 13,
+                  "endLine": 11197,
+                  "endColumn": 21,
+                  "charOffset": 387129,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-6cd5edfb-2352-4632-a654-943d3d472edf",
+          "kind": "fail",
+          "level": "warning",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 10279,
+                  "startColumn": 4,
+                  "endLine": 10279,
+                  "endColumn": 24,
+                  "charOffset": 353580,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 353580,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-be4e14b1-4e4e-45b6-9791-23fec2a1cc4c",
+          "kind": "fail",
+          "level": "warning",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 10266,
+                  "startColumn": 4,
+                  "endLine": 10266,
+                  "endColumn": 24,
+                  "charOffset": 353274,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 353274,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-bfab7021-ff27-479b-8332-4d44cee96e56",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 187,
+                  "startColumn": 5,
+                  "endLine": 187,
+                  "endColumn": 13,
+                  "charOffset": 6592,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-f0a17ef8-d5e0-41de-b016-005244324352",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 189,
+                  "startColumn": 22,
+                  "endLine": 189,
+                  "endColumn": 30,
+                  "charOffset": 6665,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-0930cdad-8cef-41be-8dcf-bedfe71df854",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 204,
+                  "startColumn": 29,
+                  "endLine": 204,
+                  "endColumn": 37,
+                  "charOffset": 7278,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-f0a65dcf-a41c-46c0-a7c8-8483ad5c6382",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 176,
+                  "startColumn": 25,
+                  "endLine": 176,
+                  "endColumn": 33,
+                  "charOffset": 6237,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-5a3da9d5-418a-4191-8452-6c5f38c9ee6e",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 14,
+                  "endLine": 172,
+                  "endColumn": 22,
+                  "charOffset": 6083,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-62713dbc-294d-4f7b-81a3-1c66b1bc096c",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 14,
+                  "endLine": 163,
+                  "endColumn": 22,
+                  "charOffset": 5807,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-ac1e7cc6-1fda-43c6-b732-799183f194fb",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 167,
+                  "startColumn": 13,
+                  "endLine": 167,
+                  "endColumn": 21,
+                  "charOffset": 5942,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-fbef648d-c36c-4b9f-aa88-3791ba490f4d",
+          "kind": "fail",
+          "level": "warning",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 4,
+                  "endLine": 5,
+                  "endColumn": 24,
+                  "charOffset": 235,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include/fplus/transform.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 235,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-be55a3bd-d47f-43b4-a8c6-4c7794dfeed8",
+          "kind": "fail",
+          "level": "warning",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/readme_perf_examples.cpp"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 4,
+                  "endLine": 5,
+                  "endColumn": 24,
+                  "charOffset": 235,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/readme_perf_examples.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 235,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-033c70a6-b26e-48be-a63f-71070c092274",
+          "kind": "fail",
+          "level": "error",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/99_problems.cpp"
+                },
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 17,
+                  "endLine": 201,
+                  "endColumn": 25,
+                  "charOffset": 4981,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-44ba0500-bfd4-4aa5-a195-fa74777d528c",
+          "kind": "fail",
+          "level": "warning",
+          "message": {},
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/99_problems.cpp"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 4,
+                  "endLine": 5,
+                  "endColumn": 24,
+                  "charOffset": 235,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/99_problems.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 235,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ]
+    }
+  ]
+}
