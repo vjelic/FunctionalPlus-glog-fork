@@ -12,9 +12,10 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "glog-d7893e7a-e00c-4664-bc7d-0c523aae1635",
+              "id": "glog-73a8cec5-ebe8-4973-a1b0-71426543bd37",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators can lead to vulnerabilities, especially in security-sensitive applications. Functions like `rand()` from the C standard library are not suitable for cryptographic purposes because they produce predictable sequences of numbers. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, but for cryptographic purposes, consider using libraries like OpenSSL or libsodium that offer cryptographically secure random number generation.\n\n### Source Code Fix Recommendation\n\n#### Vulnerable Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <cstdlib> // For rand()\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_shuffle(vec.begin(), vec.end());\n}\n```\n\n#### Fixed Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <random> // For std::random_device and std::mt19937\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(vec.begin(), vec.end(), g);\n}\n```\n\n### Library Dependencies\n\n- `<algorithm>`: Required for `std::shuffle`.\n- `<vector>`: Required for using `std::vector`.\n- `<random>`: Required for `std::random_device` and `std::mt19937`.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -23,9 +24,10 @@
               }
             },
             {
-              "id": "glog-eb74c09b-23aa-4d02-9b48-4b3f27ffb961",
+              "id": "glog-c459bd97-a108-461e-9b4b-42215cfe729b",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators can lead to vulnerabilities, especially in security-sensitive applications. Functions like `rand()` from the C standard library are not suitable for cryptographic purposes because they produce predictable sequences of numbers. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, but for cryptographic purposes, consider using libraries like OpenSSL or libsodium that offer cryptographically secure random number generation.\n\n### Source Code Fix Recommendation\n\n#### Vulnerable Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <cstdlib> // For rand()\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_shuffle(vec.begin(), vec.end());\n}\n```\n\n#### Fixed Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <random> // For std::random_device and std::mt19937\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(vec.begin(), vec.end(), g);\n}\n```\n\n### Library Dependencies\n\n- `<algorithm>`: Required for `std::shuffle`.\n- `<vector>`: Required for using `std::vector`.\n- `<random>`: Required for `std::random_device` and `std::mt19937`.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -34,9 +36,10 @@
               }
             },
             {
-              "id": "glog-6aab2cd9-a35a-48de-a371-c5077d5c0c96",
+              "id": "glog-897d2008-b565-4a80-bed0-64d0d15650c8",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators can lead to vulnerabilities, especially in security-sensitive applications. Functions like `rand()` from the C standard library are not suitable for cryptographic purposes because they produce predictable sequences of numbers. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, but for cryptographic purposes, consider using libraries like OpenSSL or libsodium that offer cryptographically secure random number generation.\n\n### Source Code Fix Recommendation\n\n#### Vulnerable Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <cstdlib> // For rand()\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_shuffle(vec.begin(), vec.end());\n}\n```\n\n#### Fixed Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <random> // For std::random_device and std::mt19937\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(vec.begin(), vec.end(), g);\n}\n```\n\n### Library Dependencies\n\n- `<algorithm>`: Required for `std::shuffle`.\n- `<vector>`: Required for using `std::vector`.\n- `<random>`: Required for `std::random_device` and `std::mt19937`.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -45,9 +48,10 @@
               }
             },
             {
-              "id": "glog-5b6cfa5c-219b-4ef1-84b3-9c8c9ea49eef",
+              "id": "glog-d4499897-92f5-413a-98c9-1aaa0c40428e",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators can lead to vulnerabilities, especially in security-sensitive applications. Functions like `rand()` from the C standard library are not suitable for cryptographic purposes because they produce predictable sequences of numbers. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, but for cryptographic purposes, consider using libraries like OpenSSL or libsodium that offer cryptographically secure random number generation.\n\n### Source Code Fix Recommendation\n\n#### Vulnerable Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <cstdlib> // For rand()\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_shuffle(vec.begin(), vec.end());\n}\n```\n\n#### Fixed Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <random> // For std::random_device and std::mt19937\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(vec.begin(), vec.end(), g);\n}\n```\n\n### Library Dependencies\n\n- `<algorithm>`: Required for `std::shuffle`.\n- `<vector>`: Required for using `std::vector`.\n- `<random>`: Required for `std::random_device` and `std::mt19937`.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -56,9 +60,10 @@
               }
             },
             {
-              "id": "glog-75027d90-1716-4d11-b414-2d2268fbcf3d",
+              "id": "glog-19cf6272-d672-4210-adde-5f54f5ee6a3b",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators can lead to vulnerabilities, especially in security-sensitive applications. Functions like `rand()` from the C standard library are not suitable for cryptographic purposes because they produce predictable sequences of numbers. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, but for cryptographic purposes, consider using libraries like OpenSSL or libsodium that offer cryptographically secure random number generation.\n\n### Source Code Fix Recommendation\n\n#### Vulnerable Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <cstdlib> // For rand()\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_shuffle(vec.begin(), vec.end());\n}\n```\n\n#### Fixed Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <random> // For std::random_device and std::mt19937\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(vec.begin(), vec.end(), g);\n}\n```\n\n### Library Dependencies\n\n- `<algorithm>`: Required for `std::shuffle`.\n- `<vector>`: Required for using `std::vector`.\n- `<random>`: Required for `std::random_device` and `std::mt19937`.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -67,20 +72,10 @@
               }
             },
             {
-              "id": "glog-c9d9fa13-4602-4ade-9c75-882b79fbae47",
+              "id": "glog-b41a7056-a26f-44cd-be5c-32bd002fdb67",
               "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-83bb9ab4-3d42-4b74-a1fc-caeee23dd8b2",
-              "help": {
-                "text": ""
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators can lead to vulnerabilities, especially in security-sensitive applications. Functions like `rand()` from the C standard library are not suitable for cryptographic purposes because they produce predictable sequences of numbers. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, but for cryptographic purposes, consider using libraries like OpenSSL or libsodium that offer cryptographically secure random number generation.\n\n### Source Code Fix Recommendation\n\n#### Vulnerable Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <cstdlib> // For rand()\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_shuffle(vec.begin(), vec.end());\n}\n```\n\n#### Fixed Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <random> // For std::random_device and std::mt19937\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(vec.begin(), vec.end(), g);\n}\n```\n\n### Library Dependencies\n\n- `<algorithm>`: Required for `std::shuffle`.\n- `<vector>`: Required for using `std::vector`.\n- `<random>`: Required for `std::random_device` and `std::mt19937`.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -89,9 +84,82 @@
               }
             },
             {
-              "id": "glog-c3d457ad-fd7a-46cc-8e21-de8793a4caaa",
+              "id": "glog-0537a751-d514-4f49-93ed-838a0d2a6d40",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-dde9d379-9d4d-4119-b8bb-d1d23215c006",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-5174e806-5218-440a-9ef9-100e5cd8bbd3",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-09073234-f2e5-4d4a-98ab-e15dba9ef855",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-963cb1fd-db9d-455b-9dda-2af2effe064c",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-14065740-10af-479b-b877-d1f19b4fd220",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "glog-c0f59f8b-168a-4e69-a3d3-92bfc3cd9931",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators can lead to vulnerabilities, especially in security-sensitive applications. Functions like `rand()` from the C standard library are not suitable for cryptographic purposes because they produce predictable sequences of numbers. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, but for cryptographic purposes, consider using libraries like OpenSSL or libsodium that offer cryptographically secure random number generation.\n\n### Source Code Fix Recommendation\n\n#### Vulnerable Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <cstdlib> // For rand()\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_shuffle(vec.begin(), vec.end());\n}\n```\n\n#### Fixed Code\n\n```cpp\n#include <algorithm>\n#include <vector>\n#include <random> // For std::random_device and std::mt19937\n\nvoid shuffleVector(std::vector<int>& vec) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(vec.begin(), vec.end(), g);\n}\n```\n\n### Library Dependencies\n\n- `<algorithm>`: Required for `std::shuffle`.\n- `<vector>`: Required for using `std::vector`.\n- `<random>`: Required for `std::random_device` and `std::mt19937`.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -100,9 +168,10 @@
               }
             },
             {
-              "id": "glog-b27faf86-c087-4735-9dd7-b550d45e8c02",
+              "id": "glog-e0ed760d-6516-42d4-a34c-247ced437e18",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
               },
               "properties": {
                 "tags": [
@@ -111,9 +180,10 @@
               }
             },
             {
-              "id": "glog-2ee54106-f4ca-47e0-9ef0-d1054bb4926a",
+              "id": "glog-c59c6c21-1353-4a2e-a26a-5a3bdd66b5d9",
               "help": {
-                "text": ""
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
               },
               "properties": {
                 "tags": [
@@ -122,251 +192,10 @@
               }
             },
             {
-              "id": "glog-06b730f2-c723-4173-88c9-4659f4b488ab",
+              "id": "glog-46c4f775-1bc9-48ca-80c8-f49aad72772f",
               "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-92d97913-db14-427f-aecc-a0eb34cd1d87",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-bcd147c5-dc4b-467f-bb94-85cc815fc48c",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-242c0428-acc3-400b-b932-6f0e27a74492",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-7b510fe3-67da-4cfe-99e9-e57b4c3708bc",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-7b2d40d2-b158-4acd-94f2-474a905acbec",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-192125a3-0ccc-466a-ac06-c834b67f49b3",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-b5f3ee37-d5ef-4a84-afed-a5f9cccf6281",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-6ec74d91-ecb9-4cc6-a84d-4b82e2480abe",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-6e635f0b-4b08-46fb-84c6-424b232b473d",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-697d75db-0745-4985-9c91-f0130edfed2d",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-6f9a3993-b940-4967-aaee-cf9340a510f2",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-13d20147-1b7c-4543-82c3-da0970f7f0a0",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-40e3ffe3-5864-4643-be16-0c7651e2b259",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-82beb598-b4d9-4916-aec0-65bb3d88feff",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-228f22e5-f0cd-484e-afd7-39d98009c69e",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-6617977d-14c3-4fb4-bdc8-7ddd4f0555b5",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-d3d69b56-bb84-4b2f-8992-9b37a25cb71e",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-1adbbea9-91e4-4275-b374-d01ed47379cc",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-fe8a9b0c-e3b9-4d49-84d8-b62724bbc05f",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-1d666caa-da1d-4435-a46e-0f2e427cec45",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "glog-e02aa90f-19a2-4fe6-9816-c9387289c263",
-              "help": {
-                "text": ""
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "glog-ab04c6fe-ec90-4f9f-b171-52de2914e089",
-              "help": {
-                "text": ""
+                "text": "",
+                "markdown": "## Description\n\nUnsecured URL Vulnerability in C++ programming language refers to the situation where a program does not validate or incorrectly validates an input that can affect the control flow or data flow of a program. In this case, the input is a URL. If the URL is not validated properly, it can lead to various security vulnerabilities such as injection attacks, cross-site scripting (XSS), and remote file inclusion (RFI).\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to validate all URLs before using them. This can be done by using regular expressions to check if the URL is in the correct format. Additionally, it is also recommended to use secure protocols such as HTTPS instead of HTTP.\n\n## Source Code Fix Recommendation\n\nHere is a simple example of how to validate a URL using regular expressions in C++:\n\n```cpp\n#include <regex>\n#include <string>\n\nbool isValidURL(const std::string& url)\n{\n    std::regex url_regex(\n        R\"(^https://([a-z]+\\.)?[a-z]+\\.[a-z]+(/.*)?$)\",\n        std::regex::icase\n    );\n    return std::regex_match(url, url_regex);\n}\n```\n\nIn this example, the `isValidURL` function checks if the input URL starts with \"https://\", followed by an optional subdomain (consisting of lowercase letters), a domain name (consisting of lowercase letters), a domain extension (consisting of lowercase letters), and an optional path. The function returns `true` if the URL matches this pattern and `false` otherwise.\n\n## Library Dependencies\n\nThe above code example requires the following library dependencies:\n\n- `<regex>`: for regular expressions\n- `<string>`: for string manipulation\n\n## OWASP Resources\n\n- [OWASP Unvalidated Redirects and Forwards Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html)\n- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-346: Origin Validation Error](https://cwe.mitre.org/data/definitions/346.html)\n- [CWE-20: Improper Input Validation](https://cwe.mitre.org/data/definitions/20.html)"
               },
               "properties": {
                 "tags": [
@@ -386,48 +215,12 @@
       "language": "en-US",
       "results": [
         {
-          "ruleId": "glog-d7893e7a-e00c-4664-bc7d-0c523aae1635",
+          "ruleId": "glog-73a8cec5-ebe8-4973-a1b0-71426543bd37",
           "kind": "fail",
           "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 11219,
-                  "startColumn": 22,
-                  "endLine": 11219,
-                  "endColumn": 30,
-                  "charOffset": 387852,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-6aab2cd9-a35a-48de-a371-c5077d5c0c96",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -462,48 +255,12 @@
           }
         },
         {
-          "ruleId": "glog-eb74c09b-23aa-4d02-9b48-4b3f27ffb961",
+          "ruleId": "glog-c459bd97-a108-461e-9b4b-42215cfe729b",
           "kind": "fail",
           "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 11206,
-                  "startColumn": 25,
-                  "endLine": 11206,
-                  "endColumn": 33,
-                  "charOffset": 387424,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-5b6cfa5c-219b-4ef1-84b3-9c8c9ea49eef",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -538,10 +295,92 @@
           }
         },
         {
-          "ruleId": "glog-75027d90-1716-4d11-b414-2d2268fbcf3d",
+          "ruleId": "glog-897d2008-b565-4a80-bed0-64d0d15650c8",
           "kind": "fail",
           "level": "error",
-          "message": {},
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11219,
+                  "startColumn": 22,
+                  "endLine": 11219,
+                  "endColumn": 30,
+                  "charOffset": 387852,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-d4499897-92f5-413a-98c9-1aaa0c40428e",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11206,
+                  "startColumn": 25,
+                  "endLine": 11206,
+                  "endColumn": 33,
+                  "charOffset": 387424,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-19cf6272-d672-4210-adde-5f54f5ee6a3b",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -576,111 +415,12 @@
           }
         },
         {
-          "ruleId": "glog-c9d9fa13-4602-4ade-9c75-882b79fbae47",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 10279,
-                  "startColumn": 4,
-                  "endLine": 10279,
-                  "endColumn": 24,
-                  "charOffset": 353580,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 353580,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-83bb9ab4-3d42-4b74-a1fc-caeee23dd8b2",
+          "ruleId": "glog-b41a7056-a26f-44cd-be5c-32bd002fdb67",
           "kind": "fail",
           "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 11197,
-                  "startColumn": 13,
-                  "endLine": 11197,
-                  "endColumn": 21,
-                  "charOffset": 387129,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-c3d457ad-fd7a-46cc-8e21-de8793a4caaa",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -715,10 +455,12 @@
           }
         },
         {
-          "ruleId": "glog-b27faf86-c087-4735-9dd7-b550d45e8c02",
+          "ruleId": "glog-0537a751-d514-4f49-93ed-838a0d2a6d40",
           "kind": "fail",
           "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -778,10 +520,12 @@
           }
         },
         {
-          "ruleId": "glog-2ee54106-f4ca-47e0-9ef0-d1054bb4926a",
+          "ruleId": "glog-dde9d379-9d4d-4119-b8bb-d1d23215c006",
           "kind": "fail",
           "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -841,73 +585,12 @@
           }
         },
         {
-          "ruleId": "glog-06b730f2-c723-4173-88c9-4659f4b488ab",
+          "ruleId": "glog-5174e806-5218-440a-9ef9-100e5cd8bbd3",
           "kind": "fail",
           "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 6772,
-                  "startColumn": 4,
-                  "endLine": 6772,
-                  "endColumn": 24,
-                  "charOffset": 228907,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 228907,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-92d97913-db14-427f-aecc-a0eb34cd1d87",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -967,10 +650,12 @@
           }
         },
         {
-          "ruleId": "glog-bcd147c5-dc4b-467f-bb94-85cc815fc48c",
+          "ruleId": "glog-09073234-f2e5-4d4a-98ab-e15dba9ef855",
           "kind": "fail",
           "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -978,11 +663,11 @@
                   "uri": "include_all_in_one/include/fplus/fplus.hpp"
                 },
                 "region": {
-                  "startLine": 6760,
+                  "startLine": 6772,
                   "startColumn": 4,
-                  "endLine": 6760,
+                  "endLine": 6772,
                   "endColumn": 24,
-                  "charOffset": 228594,
+                  "charOffset": 228907,
                   "charLength": 20,
                   "snippet": {
                     "text": "http://www.boost.org",
@@ -1009,7 +694,7 @@
                   "replacements": [
                     {
                       "deletedRegion": {
-                        "charOffset": 228594,
+                        "charOffset": 228907,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -1030,10 +715,12 @@
           }
         },
         {
-          "ruleId": "glog-242c0428-acc3-400b-b932-6f0e27a74492",
+          "ruleId": "glog-963cb1fd-db9d-455b-9dda-2af2effe064c",
           "kind": "fail",
           "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -1093,10 +780,12 @@
           }
         },
         {
-          "ruleId": "glog-7b510fe3-67da-4cfe-99e9-e57b4c3708bc",
+          "ruleId": "glog-14065740-10af-479b-b877-d1f19b4fd220",
           "kind": "fail",
           "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -1104,11 +793,11 @@
                   "uri": "include_all_in_one/include/fplus/fplus.hpp"
                 },
                 "region": {
-                  "startLine": 6724,
+                  "startLine": 10279,
                   "startColumn": 4,
-                  "endLine": 6724,
+                  "endLine": 10279,
                   "endColumn": 24,
-                  "charOffset": 227689,
+                  "charOffset": 353580,
                   "charLength": 20,
                   "snippet": {
                     "text": "http://www.boost.org",
@@ -1135,7 +824,7 @@
                   "replacements": [
                     {
                       "deletedRegion": {
-                        "charOffset": 227689,
+                        "charOffset": 353580,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -1156,10 +845,117 @@
           }
         },
         {
-          "ruleId": "glog-7b2d40d2-b158-4acd-94f2-474a905acbec",
+          "ruleId": "glog-c0f59f8b-168a-4e69-a3d3-92bfc3cd9931",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11197,
+                  "startColumn": 13,
+                  "endLine": 11197,
+                  "endColumn": 21,
+                  "charOffset": 387129,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-e0ed760d-6516-42d4-a34c-247ced437e18",
           "kind": "fail",
           "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 6760,
+                  "startColumn": 4,
+                  "endLine": 6760,
+                  "endColumn": 24,
+                  "charOffset": 228594,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 228594,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-c59c6c21-1353-4a2e-a26a-5a3bdd66b5d9",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -1219,388 +1015,12 @@
           }
         },
         {
-          "ruleId": "glog-192125a3-0ccc-466a-ac06-c834b67f49b3",
+          "ruleId": "glog-46c4f775-1bc9-48ca-80c8-f49aad72772f",
           "kind": "fail",
           "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 6712,
-                  "startColumn": 4,
-                  "endLine": 6712,
-                  "endColumn": 24,
-                  "charOffset": 227394,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 227394,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-b5f3ee37-d5ef-4a84-afed-a5f9cccf6281",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 5377,
-                  "startColumn": 4,
-                  "endLine": 5377,
-                  "endColumn": 24,
-                  "charOffset": 179807,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 179807,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-6ec74d91-ecb9-4cc6-a84d-4b82e2480abe",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 5365,
-                  "startColumn": 4,
-                  "endLine": 5365,
-                  "endColumn": 24,
-                  "charOffset": 179510,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 179510,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-6e635f0b-4b08-46fb-84c6-424b232b473d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 5353,
-                  "startColumn": 4,
-                  "endLine": 5353,
-                  "endColumn": 24,
-                  "charOffset": 179213,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 179213,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-697d75db-0745-4985-9c91-f0130edfed2d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 5341,
-                  "startColumn": 4,
-                  "endLine": 5341,
-                  "endColumn": 24,
-                  "charOffset": 178914,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 178914,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-6f9a3993-b940-4967-aaee-cf9340a510f2",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 5165,
-                  "startColumn": 7,
-                  "endLine": 5165,
-                  "endColumn": 31,
-                  "charOffset": 172780,
-                  "charLength": 24,
-                  "snippet": {
-                    "text": "http://stackoverflow.com",
-                    "rendered": {
-                      "text": "http://stackoverflow.com",
-                      "markdown": "`http://stackoverflow.com`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 172780,
-                        "charLength": 24
-                      },
-                      "insertedContent": {
-                        "text": "https://stackoverflow.com"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-13d20147-1b7c-4543-82c3-da0970f7f0a0",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
+          "message": {
+            "text": "Unsecured URL Vulnerability"
+          },
           "locations": [
             {
               "physicalLocation": {
@@ -1635,436 +1055,6 @@
                 {
                   "artifactLocation": {
                     "uri": "examples/readme_perf_examples.cpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 235,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-40e3ffe3-5864-4643-be16-0c7651e2b259",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 204,
-                  "startColumn": 29,
-                  "endLine": 204,
-                  "endColumn": 37,
-                  "charOffset": 7278,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-82beb598-b4d9-4916-aec0-65bb3d88feff",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 189,
-                  "startColumn": 22,
-                  "endLine": 189,
-                  "endColumn": 30,
-                  "charOffset": 6665,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-228f22e5-f0cd-484e-afd7-39d98009c69e",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 187,
-                  "startColumn": 5,
-                  "endLine": 187,
-                  "endColumn": 13,
-                  "charOffset": 6592,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-6617977d-14c3-4fb4-bdc8-7ddd4f0555b5",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 176,
-                  "startColumn": 25,
-                  "endLine": 176,
-                  "endColumn": 33,
-                  "charOffset": 6237,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-d3d69b56-bb84-4b2f-8992-9b37a25cb71e",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 172,
-                  "startColumn": 14,
-                  "endLine": 172,
-                  "endColumn": 22,
-                  "charOffset": 6083,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-1adbbea9-91e4-4275-b374-d01ed47379cc",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 167,
-                  "startColumn": 13,
-                  "endLine": 167,
-                  "endColumn": 21,
-                  "charOffset": 5942,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-fe8a9b0c-e3b9-4d49-84d8-b62724bbc05f",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 163,
-                  "startColumn": 14,
-                  "endLine": 163,
-                  "endColumn": 22,
-                  "charOffset": 5807,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-1d666caa-da1d-4435-a46e-0f2e427cec45",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 4,
-                  "endLine": 5,
-                  "endColumn": 24,
-                  "charOffset": 235,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include/fplus/transform.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 235,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-e02aa90f-19a2-4fe6-9816-c9387289c263",
-          "kind": "fail",
-          "level": "error",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "examples/99_problems.cpp"
-                },
-                "region": {
-                  "startLine": 201,
-                  "startColumn": 17,
-                  "endLine": 201,
-                  "endColumn": 25,
-                  "charOffset": 4981,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "glog-ab04c6fe-ec90-4f9f-b171-52de2914e089",
-          "kind": "fail",
-          "level": "warning",
-          "message": {},
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "examples/99_problems.cpp"
-                },
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 4,
-                  "endLine": 5,
-                  "endColumn": 24,
-                  "charOffset": 235,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "examples/99_problems.cpp"
                   },
                   "replacements": [
                     {
