@@ -12,10 +12,22 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "9c9ff6ad-7dc1-357f-a170-77ae53e4bad8",
+              "id": "9387cd56-d834-3d95-8ef0-6678f7adaa77",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security risks.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a strong cryptographic random number generator. In C++, this can be achieved by using the `<random>` library, which provides a variety of random number generators that can be used for different purposes.\n\n## Source Code Fix Recommendation\n\nHere is a code fix for the specific vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n\n// ...\n\nstd::vector<int> ys;\nstd::random_device rd;\nstd::mt19937 g(rd());\n\nstd::shuffle(ys.begin(), ys.end(), g);\n```\n\nIn this code, `std::random_device` is used to generate a seed for the Mersenne Twister engine (`std::mt19937`), which is a strong random number generator. Then, `std::shuffle` is used to shuffle the elements in the vector `ys` using the Mersenne Twister engine.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator. This can lead to a variety of security issues, such as predictable session identifiers, predictable password reset tokens, and other security-related randomness requirements.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`. \n\n## Source Code Fix Recommendation\n\nHere is a code fix for the specific vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n\ntemplate<typename Container>\nvoid internal::shuffle(Container&& xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: This library is used to generate random numbers.\n- `<algorithm>`: This library is used for the `std::shuffle` function.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "ac8e9467-6134-3259-9e98-a950123c6ab7",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -48,34 +60,10 @@
               }
             },
             {
-              "id": "9387cd56-d834-3d95-8ef0-6678f7adaa77",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator. This can lead to a variety of security issues, such as predictable session identifiers, predictable password reset tokens, and other security-related randomness requirements.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`. \n\n## Source Code Fix Recommendation\n\nHere is a code fix for the specific vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n\ntemplate<typename Container>\nvoid internal::shuffle(Container&& xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: This library is used to generate random numbers.\n- `<algorithm>`: This library is used for the `std::shuffle` function.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
               "id": "26b413ed-479a-37eb-84e6-f3645c2c7c60",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nIn C++ programming, the \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators that can lead to predictable or easily guessable values. This can be exploited by attackers to predict the outcome of the program, leading to a variety of security issues.\n\nIn the given code snippet, `std::shuffle` is used with a potentially weak random number generator `g`. This can lead to predictable shuffling, which can be a security issue in certain contexts.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong, cryptographic random number generator. In C++, this can be achieved using the `<random>` library, which provides a variety of strong random number generators.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nstd::vector<int> xs;\nstd::random_device rd;\nstd::mt19937 g(rd());\n\nstd::shuffle(std::begin(xs), std::end(xs), g);\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister algorithm (`std::mt19937`), which is a strong random number generator. This is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "ac8e9467-6134-3259-9e98-a950123c6ab7",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -96,7 +84,7 @@
               }
             },
             {
-              "id": "5ea35646-5657-316f-964a-58f0f1125139",
+              "id": "5eaaec95-15bf-3db7-b168-2944c8b126e2",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
@@ -120,31 +108,19 @@
               }
             },
             {
+              "id": "5ea35646-5657-316f-964a-58f0f1125139",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
               "id": "73c8486a-6d2b-3603-bb53-78b66b9669d1",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "862d7daf-34aa-33e5-ad60-68c7ee569be0",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "5eaaec95-15bf-3db7-b168-2944c8b126e2",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
@@ -168,7 +144,31 @@
               }
             },
             {
+              "id": "862d7daf-34aa-33e5-ad60-68c7ee569be0",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
               "id": "d101ff3d-5858-34df-bcc3-dbcadd4aff42",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "6ef0cc08-3d15-307b-85d5-0ef5175563f0",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
@@ -216,7 +216,7 @@
               }
             },
             {
-              "id": "6ef0cc08-3d15-307b-85d5-0ef5175563f0",
+              "id": "af34a0d7-e6da-322f-9004-f77e5573daf6",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
@@ -228,10 +228,10 @@
               }
             },
             {
-              "id": "af34a0d7-e6da-322f-9004-f77e5573daf6",
+              "id": "3fbb0413-a609-33a2-9862-b39a944a74f6",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+                "markdown": "## Description\n\n\"Unsecured Web Address\" vulnerability refers to the use of unencrypted HTTP protocol for communication between the client and the server. This can lead to potential security risks such as Man-in-the-Middle (MitM) attacks, where an attacker can intercept and possibly alter the communication between the client and the server. In C++ programming, this vulnerability can occur when libraries or functions that perform HTTP requests are used without secure protocols like HTTPS.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, always use secure protocols like HTTPS for web communication. HTTPS ensures that the data transferred between the client and the server is encrypted and cannot be easily intercepted or altered by attackers. \n\n## Source Code Fix Recommendation\n\nIf you are using the `curl` library to make HTTP requests, you can switch to HTTPS by simply changing the URL from `http://` to `https://`. \n\n```cpp\n// Vulnerable code\nCURL *curl = curl_easy_init();\ncurl_easy_setopt(curl, CURLOPT_URL, \"http://stackoverflow.com\");\n\n// Fixed code\nCURL *curl = curl_easy_init();\ncurl_easy_setopt(curl, CURLOPT_URL, \"https://stackoverflow.com\");\n```\n\n## Library Dependencies\n\nThe above code example requires the `libcurl` library.\n\n## References\n\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)"
               },
               "properties": {
                 "tags": [
@@ -264,31 +264,7 @@
               }
             },
             {
-              "id": "3fbb0413-a609-33a2-9862-b39a944a74f6",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\n\"Unsecured Web Address\" vulnerability refers to the use of unencrypted HTTP protocol for communication between the client and the server. This can lead to potential security risks such as Man-in-the-Middle (MitM) attacks, where an attacker can intercept and possibly alter the communication between the client and the server. In C++ programming, this vulnerability can occur when libraries or functions that perform HTTP requests are used without secure protocols like HTTPS.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, always use secure protocols like HTTPS for web communication. HTTPS ensures that the data transferred between the client and the server is encrypted and cannot be easily intercepted or altered by attackers. \n\n## Source Code Fix Recommendation\n\nIf you are using the `curl` library to make HTTP requests, you can switch to HTTPS by simply changing the URL from `http://` to `https://`. \n\n```cpp\n// Vulnerable code\nCURL *curl = curl_easy_init();\ncurl_easy_setopt(curl, CURLOPT_URL, \"http://stackoverflow.com\");\n\n// Fixed code\nCURL *curl = curl_easy_init();\ncurl_easy_setopt(curl, CURLOPT_URL, \"https://stackoverflow.com\");\n```\n\n## Library Dependencies\n\nThe above code example requires the `libcurl` library.\n\n## References\n\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
               "id": "ee7481f6-f9c4-3f05-ac7c-0871ce7ce529",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "e031b21d-4477-34ec-9b19-77de92759b72",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
@@ -312,18 +288,6 @@
               }
             },
             {
-              "id": "951e9479-43e2-38d6-89e2-8d3ed3dedb80",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
               "id": "1c8516d2-ee57-3b82-8f13-4eb825ed9566",
               "help": {
                 "text": "",
@@ -336,7 +300,31 @@
               }
             },
             {
+              "id": "951e9479-43e2-38d6-89e2-8d3ed3dedb80",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
               "id": "9689b903-5302-3a67-9041-73ec90075ed1",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "397b9e26-6cea-32e6-a13c-e41d6ba9f58f",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
@@ -372,42 +360,6 @@
               }
             },
             {
-              "id": "397b9e26-6cea-32e6-a13c-e41d6ba9f58f",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "7bb939d7-f3c5-3a73-b8cd-de248a711b2c",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nUnsecured Web Link Vulnerability in C++ programming language refers to the situation where a program uses an unsecured HTTP link to communicate sensitive information. This can lead to Man-in-the-Middle (MitM) attacks where an attacker can intercept and possibly alter the communication between the user and the server.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use secure communication protocols such as HTTPS instead of HTTP. HTTPS ensures that the communication between the user and the server is encrypted and cannot be easily intercepted or altered by an attacker.\n\n## Source Code Fix Recommendation\n\nIf the unsecured link is hardcoded in the program, it can be fixed by simply replacing the HTTP link with its HTTPS equivalent. For example, if the program contains the following line of code:\n\n```cpp\nstd::string url = \"http://en.cppreference.com\";\n```\n\nIt can be fixed by replacing it with:\n\n```cpp\nstd::string url = \"https://en.cppreference.com\";\n```\n\n## Library Dependencies\n\nThe specific library dependencies required by the code example will depend on the specific functionality of the program. However, for the code snippet provided, no additional libraries are required.\n\n## OWASP Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [OWASP Top 10 2017: A6-Security Misconfiguration](https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
-              "id": "2fe48351-bb6e-3964-94e0-29ef11daec2b",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nUnsecured Web Link Vulnerability in C++ programming language refers to the situation where a program uses an unsecured HTTP link to communicate sensitive information. This can lead to Man-in-the-Middle (MitM) attacks where an attacker can intercept and possibly alter the communication between the user and the server.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use secure communication protocols such as HTTPS instead of HTTP. HTTPS ensures that the communication between the user and the server is encrypted and cannot be easily intercepted or altered by an attacker.\n\n## Source Code Fix Recommendation\n\nIf the unsecured link is hardcoded in the program, it can be fixed by simply replacing the HTTP link with its HTTPS equivalent. For example, if the program contains the following line of code:\n\n```cpp\nstd::string url = \"http://en.cppreference.com\";\n```\n\nIt can be fixed by replacing it with:\n\n```cpp\nstd::string url = \"https://en.cppreference.com\";\n```\n\n## Library Dependencies\n\nThe specific library dependencies required by the code example will depend on the specific functionality of the program. However, for the code snippet provided, no additional libraries are required.\n\n## OWASP Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [OWASP Top 10 2017: A6-Security Misconfiguration](https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
-                ]
-              }
-            },
-            {
               "id": "51073632-9dc5-3a2a-853c-ece535d0393d",
               "help": {
                 "text": "",
@@ -421,6 +373,30 @@
             },
             {
               "id": "9252f9ce-45f5-3e69-84cc-a211629ca28a",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "55b83993-c2e8-365e-9515-36948d0e5f89",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator, leading to a potential security breach.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`.\n\n## Source Code Fix Recommendation\n\nHere is a code fix for the vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nvoid print_result(std::vector<int> xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n    // print xs\n}\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister generator `std::mt19937`, which is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "601593ff-0e9f-3002-9aaf-7a62bb532302",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
@@ -468,18 +444,6 @@
               }
             },
             {
-              "id": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
               "id": "7a8c0bf2-5edc-3d45-85f4-49c27a30ba38",
               "help": {
                 "text": "",
@@ -500,18 +464,6 @@
               "properties": {
                 "tags": [
                   "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "601593ff-0e9f-3002-9aaf-7a62bb532302",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nAn \"Unsecured Web Link\" vulnerability refers to a situation where a program, in this case written in C++, includes a link to an external website that is not secured. This can lead to a variety of security issues, including phishing attacks, malware downloads, and other forms of exploitation. In the case of the provided link (http://www.boost.org), the link is not secured because it uses the HTTP protocol instead of the more secure HTTPS protocol.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always use secure links (HTTPS) when linking to external websites. This ensures that the communication between the user's browser and the website is encrypted and cannot be intercepted by malicious third parties. Additionally, it is also recommended to validate and sanitize all URLs to ensure they are safe before including them in the program.\n\n## Source Code Fix Recommendation\n\nThe following is a simple fix for the provided code:\n\nReplace:\n\n```cpp\nstd::string url = \"http://www.boost.org\";\n```\n\nWith:\n\n```cpp\nstd::string url = \"https://www.boost.org\";\n```\n\n## Library Dependencies\n\nThe code example provided does not require any specific library dependencies to execute properly.\n\n## OWASP and CWE Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [CWE-829: Inclusion of Functionality from Untrusted Control Sphere](https://cwe.mitre.org/data/definitions/829.html)\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
-              },
-              "properties": {
-                "tags": [
-                  "DS137138"
                 ]
               }
             },
@@ -540,14 +492,26 @@
               }
             },
             {
-              "id": "55b83993-c2e8-365e-9515-36948d0e5f89",
+              "id": "7bb939d7-f3c5-3a73-b8cd-de248a711b2c",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator, leading to a potential security breach.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`.\n\n## Source Code Fix Recommendation\n\nHere is a code fix for the vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nvoid print_result(std::vector<int> xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n    // print xs\n}\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister generator `std::mt19937`, which is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+                "markdown": "## Description\n\nUnsecured Web Link Vulnerability in C++ programming language refers to the situation where a program uses an unsecured HTTP link to communicate sensitive information. This can lead to Man-in-the-Middle (MitM) attacks where an attacker can intercept and possibly alter the communication between the user and the server.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use secure communication protocols such as HTTPS instead of HTTP. HTTPS ensures that the communication between the user and the server is encrypted and cannot be easily intercepted or altered by an attacker.\n\n## Source Code Fix Recommendation\n\nIf the unsecured link is hardcoded in the program, it can be fixed by simply replacing the HTTP link with its HTTPS equivalent. For example, if the program contains the following line of code:\n\n```cpp\nstd::string url = \"http://en.cppreference.com\";\n```\n\nIt can be fixed by replacing it with:\n\n```cpp\nstd::string url = \"https://en.cppreference.com\";\n```\n\n## Library Dependencies\n\nThe specific library dependencies required by the code example will depend on the specific functionality of the program. However, for the code snippet provided, no additional libraries are required.\n\n## OWASP Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [OWASP Top 10 2017: A6-Security Misconfiguration](https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)"
               },
               "properties": {
                 "tags": [
-                  "DS148264"
+                  "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "2fe48351-bb6e-3964-94e0-29ef11daec2b",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nUnsecured Web Link Vulnerability in C++ programming language refers to the situation where a program uses an unsecured HTTP link to communicate sensitive information. This can lead to Man-in-the-Middle (MitM) attacks where an attacker can intercept and possibly alter the communication between the user and the server.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use secure communication protocols such as HTTPS instead of HTTP. HTTPS ensures that the communication between the user and the server is encrypted and cannot be easily intercepted or altered by an attacker.\n\n## Source Code Fix Recommendation\n\nIf the unsecured link is hardcoded in the program, it can be fixed by simply replacing the HTTP link with its HTTPS equivalent. For example, if the program contains the following line of code:\n\n```cpp\nstd::string url = \"http://en.cppreference.com\";\n```\n\nIt can be fixed by replacing it with:\n\n```cpp\nstd::string url = \"https://en.cppreference.com\";\n```\n\n## Library Dependencies\n\nThe specific library dependencies required by the code example will depend on the specific functionality of the program. However, for the code snippet provided, no additional libraries are required.\n\n## OWASP Resources\n\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n- [OWASP Top 10 2017: A6-Security Misconfiguration](https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-319: Cleartext Transmission of Sensitive Information](https://cwe.mitre.org/data/definitions/319.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS137138"
                 ]
               }
             },
@@ -560,6 +524,18 @@
               "properties": {
                 "tags": [
                   "DS137138"
+                ]
+              }
+            },
+            {
+              "id": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
                 ]
               }
             }
@@ -593,6 +569,46 @@
                   "endLine": 11206,
                   "endColumn": 33,
                   "charOffset": 387424,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "ac8e9467-6134-3259-9e98-a950123c6ab7",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 11202,
+                  "startColumn": 14,
+                  "endLine": 11202,
+                  "endColumn": 22,
+                  "charOffset": 387270,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
@@ -695,46 +711,6 @@
           }
         },
         {
-          "ruleId": "9387cd56-d834-3d95-8ef0-6678f7adaa77",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 11219,
-                  "startColumn": 22,
-                  "endLine": 11219,
-                  "endColumn": 30,
-                  "charOffset": 387852,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
           "ruleId": "26b413ed-479a-37eb-84e6-f3645c2c7c60",
           "kind": "fail",
           "level": "error",
@@ -753,46 +729,6 @@
                   "endLine": 11197,
                   "endColumn": 21,
                   "charOffset": 387129,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "ac8e9467-6134-3259-9e98-a950123c6ab7",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 11202,
-                  "startColumn": 14,
-                  "endLine": 11202,
-                  "endColumn": 22,
-                  "charOffset": 387270,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
@@ -855,7 +791,7 @@
           }
         },
         {
-          "ruleId": "5ea35646-5657-316f-964a-58f0f1125139",
+          "ruleId": "5eaaec95-15bf-3db7-b168-2944c8b126e2",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -868,11 +804,11 @@
                   "uri": "include_all_in_one/include/fplus/fplus.hpp"
                 },
                 "region": {
-                  "startLine": 8711,
+                  "startLine": 10279,
                   "startColumn": 4,
-                  "endLine": 8711,
+                  "endLine": 10279,
                   "endColumn": 24,
-                  "charOffset": 297367,
+                  "charOffset": 353580,
                   "charLength": 20,
                   "snippet": {
                     "text": "http://www.boost.org",
@@ -899,7 +835,7 @@
                   "replacements": [
                     {
                       "deletedRegion": {
-                        "charOffset": 297367,
+                        "charOffset": 353580,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -985,6 +921,71 @@
           }
         },
         {
+          "ruleId": "5ea35646-5657-316f-964a-58f0f1125139",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 8711,
+                  "startColumn": 4,
+                  "endLine": 8711,
+                  "endColumn": 24,
+                  "charOffset": 297367,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 297367,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
           "ruleId": "73c8486a-6d2b-3603-bb53-78b66b9669d1",
           "kind": "fail",
           "level": "warning",
@@ -1030,136 +1031,6 @@
                     {
                       "deletedRegion": {
                         "charOffset": 289547,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "862d7daf-34aa-33e5-ad60-68c7ee569be0",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 6760,
-                  "startColumn": 4,
-                  "endLine": 6760,
-                  "endColumn": 24,
-                  "charOffset": 228594,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 228594,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "5eaaec95-15bf-3db7-b168-2944c8b126e2",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 10279,
-                  "startColumn": 4,
-                  "endLine": 10279,
-                  "endColumn": 24,
-                  "charOffset": 353580,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 353580,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -1245,6 +1116,71 @@
           }
         },
         {
+          "ruleId": "862d7daf-34aa-33e5-ad60-68c7ee569be0",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 6760,
+                  "startColumn": 4,
+                  "endLine": 6760,
+                  "endColumn": 24,
+                  "charOffset": 228594,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 228594,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
           "ruleId": "d101ff3d-5858-34df-bcc3-dbcadd4aff42",
           "kind": "fail",
           "level": "warning",
@@ -1290,6 +1226,71 @@
                     {
                       "deletedRegion": {
                         "charOffset": 228298,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "6ef0cc08-3d15-307b-85d5-0ef5175563f0",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 5377,
+                  "startColumn": 4,
+                  "endLine": 5377,
+                  "endColumn": 24,
+                  "charOffset": 179807,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 179807,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -1505,71 +1506,6 @@
           }
         },
         {
-          "ruleId": "6ef0cc08-3d15-307b-85d5-0ef5175563f0",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 5377,
-                  "startColumn": 4,
-                  "endLine": 5377,
-                  "endColumn": 24,
-                  "charOffset": 179807,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 179807,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
           "ruleId": "af34a0d7-e6da-322f-9004-f77e5573daf6",
           "kind": "fail",
           "level": "warning",
@@ -1619,6 +1555,71 @@
                       },
                       "insertedContent": {
                         "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "3fbb0413-a609-33a2-9862-b39a944a74f6",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Address"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 5165,
+                  "startColumn": 7,
+                  "endLine": 5165,
+                  "endColumn": 31,
+                  "charOffset": 172780,
+                  "charLength": 24,
+                  "snippet": {
+                    "text": "http://stackoverflow.com",
+                    "rendered": {
+                      "text": "http://stackoverflow.com",
+                      "markdown": "`http://stackoverflow.com`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 172780,
+                        "charLength": 24
+                      },
+                      "insertedContent": {
+                        "text": "https://stackoverflow.com"
                       }
                     }
                   ]
@@ -1765,71 +1766,6 @@
           }
         },
         {
-          "ruleId": "3fbb0413-a609-33a2-9862-b39a944a74f6",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Address"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 5165,
-                  "startColumn": 7,
-                  "endLine": 5165,
-                  "endColumn": 31,
-                  "charOffset": 172780,
-                  "charLength": 24,
-                  "snippet": {
-                    "text": "http://stackoverflow.com",
-                    "rendered": {
-                      "text": "http://stackoverflow.com",
-                      "markdown": "`http://stackoverflow.com`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 172780,
-                        "charLength": 24
-                      },
-                      "insertedContent": {
-                        "text": "https://stackoverflow.com"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
           "ruleId": "ee7481f6-f9c4-3f05-ac7c-0871ce7ce529",
           "kind": "fail",
           "level": "warning",
@@ -1875,71 +1811,6 @@
                     {
                       "deletedRegion": {
                         "charOffset": 101988,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "e031b21d-4477-34ec-9b19-77de92759b72",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 2567,
-                  "startColumn": 4,
-                  "endLine": 2567,
-                  "endColumn": 24,
-                  "charOffset": 87748,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 87748,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -2025,71 +1896,6 @@
           }
         },
         {
-          "ruleId": "951e9479-43e2-38d6-89e2-8d3ed3dedb80",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 2349,
-                  "startColumn": 4,
-                  "endLine": 2349,
-                  "endColumn": 24,
-                  "charOffset": 79335,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 79335,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
           "ruleId": "1c8516d2-ee57-3b82-8f13-4eb825ed9566",
           "kind": "fail",
           "level": "warning",
@@ -2155,6 +1961,71 @@
           }
         },
         {
+          "ruleId": "951e9479-43e2-38d6-89e2-8d3ed3dedb80",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 2349,
+                  "startColumn": 4,
+                  "endLine": 2349,
+                  "endColumn": 24,
+                  "charOffset": 79335,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 79335,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
           "ruleId": "9689b903-5302-3a67-9041-73ec90075ed1",
           "kind": "fail",
           "level": "warning",
@@ -2200,6 +2071,71 @@
                     {
                       "deletedRegion": {
                         "charOffset": 46441,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "397b9e26-6cea-32e6-a13c-e41d6ba9f58f",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 1105,
+                  "startColumn": 4,
+                  "endLine": 1105,
+                  "endColumn": 24,
+                  "charOffset": 37550,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 37550,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -2350,7 +2286,7 @@
           }
         },
         {
-          "ruleId": "397b9e26-6cea-32e6-a13c-e41d6ba9f58f",
+          "ruleId": "51073632-9dc5-3a2a-853c-ece535d0393d",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -2363,11 +2299,11 @@
                   "uri": "include_all_in_one/include/fplus/fplus.hpp"
                 },
                 "region": {
-                  "startLine": 1105,
+                  "startLine": 843,
                   "startColumn": 4,
-                  "endLine": 1105,
+                  "endLine": 843,
                   "endColumn": 24,
-                  "charOffset": 37550,
+                  "charOffset": 27776,
                   "charLength": 20,
                   "snippet": {
                     "text": "http://www.boost.org",
@@ -2394,7 +2330,482 @@
                   "replacements": [
                     {
                       "deletedRegion": {
-                        "charOffset": 37550,
+                        "charOffset": 27776,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "9252f9ce-45f5-3e69-84cc-a211629ca28a",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                },
+                "region": {
+                  "startLine": 827,
+                  "startColumn": 4,
+                  "endLine": 827,
+                  "endColumn": 24,
+                  "charOffset": 27410,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 27410,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "55b83993-c2e8-365e-9515-36948d0e5f89",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/99_problems.cpp"
+                },
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 17,
+                  "endLine": 201,
+                  "endColumn": 25,
+                  "charOffset": 4981,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "601593ff-0e9f-3002-9aaf-7a62bb532302",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/readme_perf_examples.cpp"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 4,
+                  "endLine": 5,
+                  "endColumn": 24,
+                  "charOffset": 235,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/readme_perf_examples.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 235,
+                        "charLength": 20
+                      },
+                      "insertedContent": {
+                        "text": "https://www.boost.org"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "17c6d733-378f-383b-a211-106fc76b59bb",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 204,
+                  "startColumn": 29,
+                  "endLine": 204,
+                  "endColumn": 37,
+                  "charOffset": 7278,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "55496997-3122-3107-a169-eaba6934aff6",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 189,
+                  "startColumn": 22,
+                  "endLine": 189,
+                  "endColumn": 30,
+                  "charOffset": 6665,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "9e9f3ace-4fdf-38ce-990b-303f9a9446b3",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 176,
+                  "startColumn": 25,
+                  "endLine": 176,
+                  "endColumn": 33,
+                  "charOffset": 6237,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "7a8c0bf2-5edc-3d45-85f4-49c27a30ba38",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 14,
+                  "endLine": 172,
+                  "endColumn": 22,
+                  "charOffset": 6083,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "bc1b8a7d-5866-3c3d-9398-13a482d08502",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 167,
+                  "startColumn": 13,
+                  "endLine": 167,
+                  "endColumn": 21,
+                  "charOffset": 5942,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "624599f3-2e70-3f3b-ab3e-24357c8eabe4",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 14,
+                  "endLine": 163,
+                  "endColumn": 22,
+                  "charOffset": 5807,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "33a2d64b-b3b9-31c5-a9d8-23090fdc131b",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Unsecured Web Link"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 4,
+                  "endLine": 5,
+                  "endColumn": 24,
+                  "charOffset": 235,
+                  "charLength": 20,
+                  "snippet": {
+                    "text": "http://www.boost.org",
+                    "rendered": {
+                      "text": "http://www.boost.org",
+                      "markdown": "`http://www.boost.org`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "An HTTP-based URL without TLS was detected."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "include/fplus/transform.hpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 235,
                         "charLength": 20
                       },
                       "insertedContent": {
@@ -2545,586 +2956,6 @@
           }
         },
         {
-          "ruleId": "51073632-9dc5-3a2a-853c-ece535d0393d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 843,
-                  "startColumn": 4,
-                  "endLine": 843,
-                  "endColumn": 24,
-                  "charOffset": 27776,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 27776,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "9252f9ce-45f5-3e69-84cc-a211629ca28a",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 827,
-                  "startColumn": 4,
-                  "endLine": 827,
-                  "endColumn": 24,
-                  "charOffset": 27410,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 27410,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "17c6d733-378f-383b-a211-106fc76b59bb",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 204,
-                  "startColumn": 29,
-                  "endLine": 204,
-                  "endColumn": 37,
-                  "charOffset": 7278,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "55496997-3122-3107-a169-eaba6934aff6",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 189,
-                  "startColumn": 22,
-                  "endLine": 189,
-                  "endColumn": 30,
-                  "charOffset": 6665,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "9e9f3ace-4fdf-38ce-990b-303f9a9446b3",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 176,
-                  "startColumn": 25,
-                  "endLine": 176,
-                  "endColumn": 33,
-                  "charOffset": 6237,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 187,
-                  "startColumn": 5,
-                  "endLine": 187,
-                  "endColumn": 13,
-                  "charOffset": 6592,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "7a8c0bf2-5edc-3d45-85f4-49c27a30ba38",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 172,
-                  "startColumn": 14,
-                  "endLine": 172,
-                  "endColumn": 22,
-                  "charOffset": 6083,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "bc1b8a7d-5866-3c3d-9398-13a482d08502",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 167,
-                  "startColumn": 13,
-                  "endLine": 167,
-                  "endColumn": 21,
-                  "charOffset": 5942,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "601593ff-0e9f-3002-9aaf-7a62bb532302",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "examples/readme_perf_examples.cpp"
-                },
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 4,
-                  "endLine": 5,
-                  "endColumn": 24,
-                  "charOffset": 235,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "examples/readme_perf_examples.cpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 235,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "624599f3-2e70-3f3b-ab3e-24357c8eabe4",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 163,
-                  "startColumn": 14,
-                  "endLine": 163,
-                  "endColumn": 22,
-                  "charOffset": 5807,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "33a2d64b-b3b9-31c5-a9d8-23090fdc131b",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Unsecured Web Link"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 4,
-                  "endLine": 5,
-                  "endColumn": 24,
-                  "charOffset": 235,
-                  "charLength": 20,
-                  "snippet": {
-                    "text": "http://www.boost.org",
-                    "rendered": {
-                      "text": "http://www.boost.org",
-                      "markdown": "`http://www.boost.org`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "An HTTP-based URL without TLS was detected."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "include/fplus/transform.hpp"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 235,
-                        "charLength": 20
-                      },
-                      "insertedContent": {
-                        "text": "https://www.boost.org"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "ThreatModel.Integration.HTTP"
-            ]
-          }
-        },
-        {
-          "ruleId": "55b83993-c2e8-365e-9515-36948d0e5f89",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "examples/99_problems.cpp"
-                },
-                "region": {
-                  "startLine": 201,
-                  "startColumn": 17,
-                  "endLine": 201,
-                  "endColumn": 25,
-                  "charOffset": 4981,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
           "ruleId": "12e941f1-2a2a-3d2e-8e06-2ae5b5797c91",
           "kind": "fail",
           "level": "warning",
@@ -3186,6 +3017,46 @@
             "DevSkimConfidence": "High",
             "tags": [
               "ThreatModel.Integration.HTTP"
+            ]
+          }
+        },
+        {
+          "ruleId": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 187,
+                  "startColumn": 5,
+                  "endLine": 187,
+                  "endColumn": 13,
+                  "charOffset": 6592,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
             ]
           }
         }
