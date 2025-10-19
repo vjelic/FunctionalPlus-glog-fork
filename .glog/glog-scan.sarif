@@ -24,10 +24,10 @@
               }
             },
             {
-              "id": "f2ed18fb-2bae-35cf-9d18-75c539d62c1e",
+              "id": "9c9ff6ad-7dc1-357f-a170-77ae53e4bad8",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security risks.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a strong cryptographic random number generator. In C++, this can be achieved by using the `<random>` library, which provides a variety of random number generators that can be used for different purposes.\n\n## Source Code Fix Recommendation\n\nHere is a code fix for the specific vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n\n// ...\n\nstd::vector<int> ys;\nstd::random_device rd;\nstd::mt19937 g(rd());\n\nstd::shuffle(ys.begin(), ys.end(), g);\n```\n\nIn this code, `std::random_device` is used to generate a seed for the Mersenne Twister engine (`std::mt19937`), which is a strong random number generator. Then, `std::shuffle` is used to shuffle the elements in the vector `ys` using the Mersenne Twister engine.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -48,10 +48,10 @@
               }
             },
             {
-              "id": "26b413ed-479a-37eb-84e6-f3645c2c7c60",
+              "id": "f2ed18fb-2bae-35cf-9d18-75c539d62c1e",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nIn C++ programming, the \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators that can lead to predictable or easily guessable values. This can be exploited by attackers to predict the outcome of the program, leading to a variety of security issues.\n\nIn the given code snippet, `std::shuffle` is used with a potentially weak random number generator `g`. This can lead to predictable shuffling, which can be a security issue in certain contexts.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong, cryptographic random number generator. In C++, this can be achieved using the `<random>` library, which provides a variety of strong random number generators.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nstd::vector<int> xs;\nstd::random_device rd;\nstd::mt19937 g(rd());\n\nstd::shuffle(std::begin(xs), std::end(xs), g);\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister algorithm (`std::mt19937`), which is a strong random number generator. This is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -72,34 +72,10 @@
               }
             },
             {
-              "id": "ac8e9467-6134-3259-9e98-a950123c6ab7",
+              "id": "26b413ed-479a-37eb-84e6-f3645c2c7c60",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "55b83993-c2e8-365e-9515-36948d0e5f89",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator, leading to a potential security breach.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`.\n\n## Source Code Fix Recommendation\n\nHere is a code fix for the vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nvoid print_result(std::vector<int> xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n    // print xs\n}\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister generator `std::mt19937`, which is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS148264"
-                ]
-              }
-            },
-            {
-              "id": "55496997-3122-3107-a169-eaba6934aff6",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator. This can lead to a variety of security issues, such as predictable session identifiers, predictable password reset tokens, and other security-related randomness requirements.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`. \n\n## Source Code Fix Recommendation\n\nHere is a code fix for the specific vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n\ntemplate<typename Container>\nvoid internal::shuffle(Container&& xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: This library is used to generate random numbers.\n- `<algorithm>`: This library is used for the `std::shuffle` function.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+                "markdown": "## Description\n\nIn C++ programming, the \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators that can lead to predictable or easily guessable values. This can be exploited by attackers to predict the outcome of the program, leading to a variety of security issues.\n\nIn the given code snippet, `std::shuffle` is used with a potentially weak random number generator `g`. This can lead to predictable shuffling, which can be a security issue in certain contexts.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong, cryptographic random number generator. In C++, this can be achieved using the `<random>` library, which provides a variety of strong random number generators.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nstd::vector<int> xs;\nstd::random_device rd;\nstd::mt19937 g(rd());\n\nstd::shuffle(std::begin(xs), std::end(xs), g);\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister algorithm (`std::mt19937`), which is a strong random number generator. This is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -120,10 +96,10 @@
               }
             },
             {
-              "id": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
+              "id": "55496997-3122-3107-a169-eaba6934aff6",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator. This can lead to a variety of security issues, such as predictable session identifiers, predictable password reset tokens, and other security-related randomness requirements.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`. \n\n## Source Code Fix Recommendation\n\nHere is a code fix for the specific vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n\ntemplate<typename Container>\nvoid internal::shuffle(Container&& xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: This library is used to generate random numbers.\n- `<algorithm>`: This library is used for the `std::shuffle` function.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -144,10 +120,10 @@
               }
             },
             {
-              "id": "bc1b8a7d-5866-3c3d-9398-13a482d08502",
+              "id": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nIn C++ programming, the \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators that can lead to predictable or easily guessable values. This can be exploited by attackers to predict the outcome of the program, leading to a variety of security issues.\n\nIn the given code snippet, `std::shuffle` is used with a potentially weak random number generator `g`. This can lead to predictable shuffling, which can be a security issue in certain contexts.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong, cryptographic random number generator. In C++, this can be achieved using the `<random>` library, which provides a variety of strong random number generators.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nstd::vector<int> xs;\nstd::random_device rd;\nstd::mt19937 g(rd());\n\nstd::shuffle(std::begin(xs), std::end(xs), g);\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister algorithm (`std::mt19937`), which is a strong random number generator. This is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+                "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -160,6 +136,30 @@
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nIn C++ programming, \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators in the code. This can lead to predictability in the generated numbers, which can be exploited by attackers to predict the behavior of the program, leading to security vulnerabilities.\n\nWeak or non-cryptographic random number generators do not provide a sufficient level of randomness and can produce predictable outcomes. They are not suitable for generating cryptographic keys or other sensitive data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong cryptographic random number generator. In C++, you can use the `<random>` library, which provides a variety of random number generators. For cryptographic purposes, consider using a library specifically designed for cryptography, such as OpenSSL.\n\n## Source Code Fix Recommendation\n\nHere is an example of how to use the `<random>` library to generate random numbers in C++:\n\n```cpp\n#include <random>\n\nstd::random_device rd;  // Will be used to obtain a seed for the random number engine\nstd::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()\nstd::uniform_int_distribution<> distrib(1, 6);\n\nint random_number = distrib(gen);\n```\n\nIn this code, `std::random_device` is a uniformly-distributed integer random number generator that produces non-deterministic random numbers. `std::mt19937` is a Mersenne Twister random number generator, and `std::uniform_int_distribution` is a random number distribution that produces integers according to a uniform discrete distribution.\n\n## Library Dependencies\n\nThe above code example requires the `<random>` library.\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "bc1b8a7d-5866-3c3d-9398-13a482d08502",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn C++ programming, the \"Avoid Using Weak or Non-Cryptographic Random Number Generators\" vulnerability refers to the use of weak or non-cryptographic random number generators that can lead to predictable or easily guessable values. This can be exploited by attackers to predict the outcome of the program, leading to a variety of security issues.\n\nIn the given code snippet, `std::shuffle` is used with a potentially weak random number generator `g`. This can lead to predictable shuffling, which can be a security issue in certain contexts.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, use a strong, cryptographic random number generator. In C++, this can be achieved using the `<random>` library, which provides a variety of strong random number generators.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nstd::vector<int> xs;\nstd::random_device rd;\nstd::mt19937 g(rd());\n\nstd::shuffle(std::begin(xs), std::end(xs), g);\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister algorithm (`std::mt19937`), which is a strong random number generator. This is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "55b83993-c2e8-365e-9515-36948d0e5f89",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn C++ programming, the vulnerability \"Avoid Using Non-Cryptographic or Weak Random Number Generators\" refers to the use of random number generators that are not cryptographically secure. This can lead to predictable randomness which can be exploited by an attacker to predict the outcome of the random number generator, leading to a potential security breach.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use a cryptographically secure random number generator. In C++, this can be achieved by using the `std::random_device` or `std::mt19937` (Mersenne Twister 19937 generator) with a seed from `std::random_device`.\n\n## Source Code Fix Recommendation\n\nHere is a code fix for the vulnerability sink:\n\n```cpp\n#include <random>\n#include <algorithm>\n#include <vector>\n\nvoid print_result(std::vector<int> xs) {\n    std::random_device rd;\n    std::mt19937 g(rd());\n    std::shuffle(xs.begin(), xs.end(), g);\n    // print xs\n}\n```\n\nIn this code, `std::random_device` is used to seed the Mersenne Twister generator `std::mt19937`, which is then used to shuffle the vector `xs`.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<random>`: for `std::random_device` and `std::mt19937`\n- `<algorithm>`: for `std::shuffle`\n- `<vector>`: for `std::vector`\n\n## References\n\n- [CWE-338: Use of Cryptographically Weak PRNG](https://cwe.mitre.org/data/definitions/338.html)"
               },
               "properties": {
                 "tags": [
@@ -191,11 +191,11 @@
       "language": "en-US",
       "results": [
         {
-          "ruleId": "9c9ff6ad-7dc1-357f-a170-77ae53e4bad8",
+          "ruleId": "9387cd56-d834-3d95-8ef0-6678f7adaa77",
           "kind": "fail",
           "level": "error",
           "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
           },
           "locations": [
             {
@@ -204,11 +204,11 @@
                   "uri": "include_all_in_one/include/fplus/fplus.hpp"
                 },
                 "region": {
-                  "startLine": 11206,
-                  "startColumn": 25,
-                  "endLine": 11206,
-                  "endColumn": 33,
-                  "charOffset": 387424,
+                  "startLine": 11219,
+                  "startColumn": 22,
+                  "endLine": 11219,
+                  "endColumn": 30,
+                  "charOffset": 387852,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
@@ -231,7 +231,7 @@
           }
         },
         {
-          "ruleId": "9387cd56-d834-3d95-8ef0-6678f7adaa77",
+          "ruleId": "b1cfd2b4-0720-3a9d-af3f-a0636c3e6150",
           "kind": "fail",
           "level": "error",
           "message": {
@@ -244,11 +244,11 @@
                   "uri": "include_all_in_one/include/fplus/fplus.hpp"
                 },
                 "region": {
-                  "startLine": 11219,
-                  "startColumn": 22,
-                  "endLine": 11219,
-                  "endColumn": 30,
-                  "charOffset": 387852,
+                  "startLine": 11234,
+                  "startColumn": 29,
+                  "endLine": 11234,
+                  "endColumn": 37,
+                  "charOffset": 388465,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
@@ -311,86 +311,6 @@
           }
         },
         {
-          "ruleId": "26b413ed-479a-37eb-84e6-f3645c2c7c60",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 11197,
-                  "startColumn": 13,
-                  "endLine": 11197,
-                  "endColumn": 21,
-                  "charOffset": 387129,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "0bdc188d-f535-3a17-9c26-9ff6addd4d3c",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
-                },
-                "region": {
-                  "startLine": 11193,
-                  "startColumn": 14,
-                  "endLine": 11193,
-                  "endColumn": 22,
-                  "charOffset": 386994,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
           "ruleId": "ac8e9467-6134-3259-9e98-a950123c6ab7",
           "kind": "fail",
           "level": "error",
@@ -431,64 +351,24 @@
           }
         },
         {
-          "ruleId": "55b83993-c2e8-365e-9515-36948d0e5f89",
+          "ruleId": "26b413ed-479a-37eb-84e6-f3645c2c7c60",
           "kind": "fail",
           "level": "error",
           "message": {
-            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "examples/99_problems.cpp"
+                  "uri": "include_all_in_one/include/fplus/fplus.hpp"
                 },
                 "region": {
-                  "startLine": 201,
-                  "startColumn": 17,
-                  "endLine": 201,
-                  "endColumn": 25,
-                  "charOffset": 4981,
-                  "charLength": 8,
-                  "snippet": {
-                    "text": "shuffle(",
-                    "rendered": {
-                      "text": "shuffle(",
-                      "markdown": "`shuffle(`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "Cryptography.PRNG.Weak"
-            ]
-          }
-        },
-        {
-          "ruleId": "55496997-3122-3107-a169-eaba6934aff6",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "include/fplus/transform.hpp"
-                },
-                "region": {
-                  "startLine": 189,
-                  "startColumn": 22,
-                  "endLine": 189,
-                  "endColumn": 30,
-                  "charOffset": 6665,
+                  "startLine": 11197,
+                  "startColumn": 13,
+                  "endLine": 11197,
+                  "endColumn": 21,
+                  "charOffset": 387129,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
@@ -551,11 +431,11 @@
           }
         },
         {
-          "ruleId": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
+          "ruleId": "55496997-3122-3107-a169-eaba6934aff6",
           "kind": "fail",
           "level": "error",
           "message": {
-            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
           },
           "locations": [
             {
@@ -564,11 +444,11 @@
                   "uri": "include/fplus/transform.hpp"
                 },
                 "region": {
-                  "startLine": 187,
-                  "startColumn": 5,
-                  "endLine": 187,
-                  "endColumn": 13,
-                  "charOffset": 6592,
+                  "startLine": 189,
+                  "startColumn": 22,
+                  "endLine": 189,
+                  "endColumn": 30,
+                  "charOffset": 6665,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
@@ -631,7 +511,7 @@
           }
         },
         {
-          "ruleId": "bc1b8a7d-5866-3c3d-9398-13a482d08502",
+          "ruleId": "ebbf2a25-ab97-32c5-bc58-33a81b4a5c89",
           "kind": "fail",
           "level": "error",
           "message": {
@@ -644,11 +524,11 @@
                   "uri": "include/fplus/transform.hpp"
                 },
                 "region": {
-                  "startLine": 167,
-                  "startColumn": 13,
-                  "endLine": 167,
-                  "endColumn": 21,
-                  "charOffset": 5942,
+                  "startLine": 187,
+                  "startColumn": 5,
+                  "endLine": 187,
+                  "endColumn": 13,
+                  "charOffset": 6592,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
@@ -689,6 +569,86 @@
                   "endLine": 172,
                   "endColumn": 22,
                   "charOffset": 6083,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "bc1b8a7d-5866-3c3d-9398-13a482d08502",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Weak or Non-Cryptographic Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "include/fplus/transform.hpp"
+                },
+                "region": {
+                  "startLine": 167,
+                  "startColumn": 13,
+                  "endLine": 167,
+                  "endColumn": 21,
+                  "charOffset": 5942,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "shuffle(",
+                    "rendered": {
+                      "text": "shuffle(",
+                      "markdown": "`shuffle(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "55b83993-c2e8-365e-9515-36948d0e5f89",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid Using Non-Cryptographic or Weak Random Number Generators"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/99_problems.cpp"
+                },
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 17,
+                  "endLine": 201,
+                  "endColumn": 25,
+                  "charOffset": 4981,
                   "charLength": 8,
                   "snippet": {
                     "text": "shuffle(",
